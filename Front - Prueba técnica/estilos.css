@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#carousel-container {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    margin: auto;
+}
+
+#carousel {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-item {
+    width: 150px;
+    height: 200px;
+    margin: 0 10px;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item.middle {
+    width: 300px;
+    height: 400px;
+}
