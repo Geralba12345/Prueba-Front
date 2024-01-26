@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Front-End</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <section id="usuario" class="usuario">
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" required>
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" required>
+
+            <button type="button" onclick="cargarDatosUsuario()">Cargar Datos</button>
+        </form>
+        <div id="userData">
+
+        </div>
+    </section>
+
+    <section id="pdf" class="pdf">
+        <form>
+            <label for="tituloPdf">Título:</label>
+            <input type="text" id="tituloPdf" required>
+
+            <label for="archivoPdf">Archivo PDF:</label>
+            <input type="file" id="archivoPdf" accept=".pdf" required>
+
+            <button type="button" onclick="cargarPDF()">Cargar PDF</button>
+        </form>
+        <div id="pdfData">
+
+        </div>
+    </section>
+
+    <section id="imagen" class="imagen">
+        <form>
+            <label for="tituloImagen">Título:</label>
+            <input type="text" id="tituloImagen" required>
+
+            <label for="archivoImagen">Imagen:</label>
+            <input type="file" id="archivoImagen" accept="image/*" required>
+
+            <button type="button" onclick="cargarImagen()">Cargar Imagen</button>
+        </form>
+        <div id="imageData">
+
+        </div>
+    </section>
+
+    <section>
+        <div id="carousel-container" onmouseenter="stopCarousel()" onmouseleave="startCarousel()">
+            <div id="carousel">
+                <div class="carousel-item"><img src="https://quierooir.com/wp-content/uploads/2020/02/musicos-perdida-auditiva.jpg" alt="Imagen 1"></div>
+                <div class="carousel-item"><img src="https://images.squarespace-cdn.com/content/v1/621e435338cdab46b7fbcbc0/1650734374292-3GC5D5W1JYP45NO6IJSL/Blog+Images.jpg" alt="Imagen 2"></div>
+                <div class="carousel-item"><img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/06/A3-Dudamel-orquestas-1024x731.jpg" alt="Imagen 3"></div>
+                <div class="carousel-item"><img src="data:image/jpeg;base64,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" alt="Imagen 4"></div>
+                <div class="carousel-item"><img src="https://namagazine.es/wp-content/uploads/2018/04/coaching-para-musicos-maria-de-marcos.jpg" alt="Imagen 5"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
